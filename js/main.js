@@ -12,23 +12,22 @@
         'politicalCampaign.html',
         'advertisement.html'
     ];
-
+    
     // Get the current path from the URL (without the domain)
     const fullPath = window.location.pathname;
-
+    
     // Remove the base path "/publicityBuddy/" from the full path
     const basePath = '/publicityBuddy';  // The path where your site is hosted
-
+    
     // Strip base path and get the file name from the URL
     let routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
-
+    
     // Handle the case where the route is "/" (root path)
     if (fullPath === basePath + '/' || fullPath === basePath) {
         window.location.replace(basePath + '/index.html');  // Redirect to index.html if root path is accessed
-    }
-    // Avoid route checking if we're already on 404 page
-    else if (routeName !== '404.html' && !validPaths.includes(routeName)) {
-        window.location.replace(basePath + '/404.html');  // Redirect to the 404 page within the base path
+    } else if (routeName !== '404.html' && !validPaths.includes(routeName)) {
+        // Only check for valid paths and 404 redirection if not on the root path
+        window.location.replace(basePath + '/404.html');  // Redirect to the 404 page if the route is invalid
     }
 
     // Spinner
