@@ -2,6 +2,7 @@
     "use strict";
 
     const validPaths = [
+        '/',
         'index.html',
         'about.html',
         'contact.html',
@@ -23,7 +24,7 @@
         window.location.replace('404.html');
     }
 
-    
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {
