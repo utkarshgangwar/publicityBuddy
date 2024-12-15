@@ -18,15 +18,18 @@
     
     // Remove the base path "/publicityBuddy/" from the full path
     const basePath = '/publicityBuddy';  // The path where your site is hosted
-    const routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
+    let routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
     
-    console.log('Route Name:', routeName);  // Debug the current route
+    // Handle the case where the route is "/"
+    if (fullPath === basePath + '/' || fullPath === basePath) {
+        window.location.replace(basePath + '/index.html');  // Redirect to index.html if root path is accessed
+    }
     
     // Avoid route checking if we're already on 404 page
     if (routeName !== '404.html' && !validPaths.includes(routeName)) {
         window.location.replace(basePath + '/404.html');  // Redirect to the 404 page within the base path
     }
-    
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {
