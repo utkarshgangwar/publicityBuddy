@@ -10,23 +10,23 @@
         'digitalMarketing.html',
         'eventManagement.html',
         'politicalCampaign.html',
-        'advertisement.html',
-        '404.html'
+        'advertisement.html'
     ];
-
-    // Get the current route
+    
+    // Get the current path from the URL (without the domain)
     const fullPath = window.location.pathname;
-
-    // Extract the route from the path after the base directory (`/publicityBuddy/`)
-    const routeName = fullPath.replace('/publicityBuddy/', '').split('/').pop(); // Remove base path and get the filename
-
-    console.log('Route Name:', routeName); // Debug the current route
-
-    if (!validPaths.includes(routeName)) {
-        window.location.replace('/publicityBuddy/404.html'); // Redirect to 404 page in the subdirectory
+    
+    // Remove the base path "/publicityBuddy/" from the full path
+    const basePath = '/publicityBuddy';  // The path where your site is hosted
+    const routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
+    
+    console.log('Route Name:', routeName);  // Debug the current route
+    
+    // Avoid route checking if we're already on 404 page
+    if (routeName !== '404.html' && !validPaths.includes(routeName)) {
+        window.location.replace(basePath + '/404.html');  // Redirect to the 404 page within the base path
     }
-
-
+    
     // Spinner
     var spinner = function () {
         setTimeout(function () {
