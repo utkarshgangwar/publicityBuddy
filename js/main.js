@@ -13,24 +13,20 @@
         'advertisement.html',
     ];
 
-    // Get the current path from the URL (without the domain)
+    const basePath = '/publicityBuddy';  // The path where your site is hosted
     const fullPath = window.location.pathname;
 
-    // Remove the base path "/publicityBuddy/" from the full path
-    const basePath = '/publicityBuddy';  // The path where your site is hosted
-
-    // Strip base path and get the file name from the URL
-    let routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
+    // Get the route name (strip base path and get the file name)
+    let routeName = fullPath.replace(basePath, '').split('/').pop();  // Get the file name
 
     // Handle the case where the route is "/" (root path)
     if (fullPath === basePath + '/' || fullPath === basePath) {
         window.location.replace(basePath + '/index.html');  // Redirect to index.html if root path is accessed
+    } else if (routeName === '404.html') {
+        // Do nothing if already on the 404 page
     } else if (routeName !== 'index.html' && !validPaths.includes(routeName)) {
-        // Only check for valid paths and 404 redirection if not on the root path
-        window.location.replace(basePath + '/index.html');  // Redirect to the 404 page if the route is invalid
-    } else if (routeName !== '404.html' && !validPaths.includes(routeName)) {
-        // Only check for valid paths and 404 redirection if not on the root path
-        window.location.replace(basePath + '/404.html');  // Redirect to the 404 page if the route is invalid
+        // Redirect to the 404 page if the route is invalid
+        window.location.replace(basePath + '/404.html');
     }
 
     // Spinner
