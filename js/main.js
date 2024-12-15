@@ -18,9 +18,11 @@
     
     // Remove the base path "/publicityBuddy/" from the full path
     const basePath = '/publicityBuddy';  // The path where your site is hosted
+    
+    // Strip base path and get the file name from the URL
     let routeName = fullPath.replace(basePath, '').split('/').pop();  // Strip base path and get the file name
     
-    // Handle the case where the route is "/"
+    // Handle the case where the route is "/" (root path)
     if (fullPath === basePath + '/' || fullPath === basePath) {
         window.location.replace(basePath + '/index.html');  // Redirect to index.html if root path is accessed
     }
