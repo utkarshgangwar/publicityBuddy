@@ -10,7 +10,8 @@
         'digitalMarketing.html',
         'eventManagement.html',
         'politicalCampaign.html',
-        'advertisement.html'
+        'advertisement.html',
+        '404.html'
     ];
     
     // Get the current path from the URL (without the domain)
