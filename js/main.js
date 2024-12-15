@@ -11,7 +11,7 @@
         'eventManagement.html',
         'politicalCampaign.html',
         'advertisement.html',
-        '404.html'
+        '404.html'  // You can keep this here, just make sure we don't redirect from 404.html
     ];
     
     // Get the current path from the URL (without the domain)
@@ -26,9 +26,9 @@
     // Handle the case where the route is "/" (root path)
     if (fullPath === basePath + '/' || fullPath === basePath) {
         window.location.replace(basePath + '/index.html');  // Redirect to index.html if root path is accessed
-    } else if (routeName !== 'index.html' && !validPaths.includes(routeName)) {
-        // Only check for valid paths and 404 redirection if not on the root path
-        window.location.replace(basePath + '/index.html');  // Redirect to the 404 page if the route is invalid
+    } else if (routeName !== '404.html' && routeName !== 'index.html' && !validPaths.includes(routeName)) {
+        // Only check for valid paths and 404 redirection if not on the 404 page
+        window.location.replace(basePath + '/index.html');  // Redirect to index.html for invalid paths
     }
 
     // Spinner
