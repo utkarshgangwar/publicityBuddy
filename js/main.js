@@ -1,7 +1,6 @@
 (function ($) {
     "use strict";
 
-    // Route Checking Logic
     const validPaths = [
         'index.html',
         'about.html',
@@ -13,15 +12,18 @@
         'politicalCampaign.html',
         'advertisement.html'
     ];
-
+    
     // Get the current route
-    const routeName = window.location.pathname.split('/').pop();
-
+    const fullPath = window.location.pathname;
+    const routeName = fullPath.substring(fullPath.lastIndexOf('/') + 1);
+    
+    console.log('Route Name:', routeName); // Debug the current route
+    
     if (!validPaths.includes(routeName)) {
         window.location.replace('404.html');
     }
 
-
+    
     // Spinner
     var spinner = function () {
         setTimeout(function () {
