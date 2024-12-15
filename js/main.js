@@ -28,7 +28,7 @@
         window.location.replace(basePath + '/index.html');
     } else if (!validPaths.includes(routeName)) {
         // If the route is not valid and it's not 404.html, redirect to 404.html
-        window.location.replace(basePath + '/404.html');
+        window.location.replace(basePath + '/index.html');
     }
 
     // Spinner
