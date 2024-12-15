@@ -10,7 +10,8 @@
         'digitalMarketing.html',
         'eventManagement.html',
         'politicalCampaign.html',
-        'advertisement.html'
+        'advertisement.html',
+        '404.html'
     ];
 
     // Get the current route
@@ -25,7 +26,7 @@
         window.location.replace('/publicityBuddy/404.html'); // Redirect to 404 page in the subdirectory
     }
 
-    
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {
