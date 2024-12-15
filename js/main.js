@@ -2,7 +2,6 @@
     "use strict";
 
     const validPaths = [
-        '/',
         'index.html',
         'about.html',
         'contact.html',
@@ -13,18 +12,20 @@
         'politicalCampaign.html',
         'advertisement.html'
     ];
-    
+
     // Get the current route
     const fullPath = window.location.pathname;
-    const routeName = fullPath.substring(fullPath.lastIndexOf('/') + 1);
-    
+
+    // Extract the route from the path after the base directory (`/publicityBuddy/`)
+    const routeName = fullPath.replace('/publicityBuddy/', '').split('/').pop(); // Remove base path and get the filename
+
     console.log('Route Name:', routeName); // Debug the current route
-    
+
     if (!validPaths.includes(routeName)) {
-        window.location.replace('404.html');
+        window.location.replace('/publicityBuddy/404.html'); // Redirect to 404 page in the subdirectory
     }
 
-
+    
     // Spinner
     var spinner = function () {
         setTimeout(function () {
